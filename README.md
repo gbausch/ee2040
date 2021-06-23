@@ -23,11 +23,16 @@ Gliederung ergänzen!
     1. C-Schlüsselworte
 2. Parallele Schnittstelle als Eingang
     1. Polling und Interrupttechnologien
-3. Analog-Digital-Wandler
+3. UART
+    1. Serielle vs. parallele Kommunikation
+    2. RS-232 vs. UART
+    3. Baudrate, Parität, Start- und Stop-Bit
+    4. Senden von Zeichen mittels UART ([UART_1.c](./src/UART_1))
+5. Analog-Digital-Wandler
     1. Wandlerverfahren
     2. ADC des Arduino konfigurieren ([ADC_1](./src/ADC_1))
     3. ADC mittels Interrupt ([ADC_2](./src/ADC_2))
-4. Timer
+6. Timer
     1. Aufbau und Funktionsweise des Timers
     2. Pulsweitenmodulation (PWM)
     3. Demo 1: Pulsierende LED
