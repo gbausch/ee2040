@@ -22,11 +22,11 @@ Gliederung ergänzen!
     2. Dateien einbinden
   1. C-Schlüsselworte
 1. Parallele Schnittstelle als Eingang
-   1. Polling und Interrupttechnologien
+  1. Polling und Interrupttechnologien
 3. Analog-Digital-Wandler
-  - Wandlerverfahren
-  - ADC des Arduino konfigurieren ([ADC_1](./src/ADC_1))
-  - ADC mittels Interrupt ([ADC_2](./src/ADC_2))
+  1. Wandlerverfahren
+  2. ADC des Arduino konfigurieren ([ADC_1](./src/ADC_1))
+  3. ADC mittels Interrupt ([ADC_2](./src/ADC_2))
 4. Timer
  - Aufbau und Funktionsweise des Timers
  - Pulsweitenmodulation (PWM)
