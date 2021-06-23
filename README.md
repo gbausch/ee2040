@@ -37,6 +37,9 @@ Gliederung ergänzen!
     2. Pulsweitenmodulation (PWM)
     3. Demo 1: Pulsierende LED
     4. Demo 2: ADC mit Timer takten ([Timer_2](./src/Timer_2))
+7. I2C-Schnittstelle (optional)
+    1. Anschluss eines Displays (0,96 Zoll OLED)
+    2. Temperatur/Feuchtigkeitssensor
 
 ## Ressourcen
 ToDo
