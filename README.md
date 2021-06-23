@@ -6,11 +6,28 @@ ToDo
 ## Gliederung
 Gliederung ergänzen!
 
-10. Analog-Digital-Wandler
+1. Hardwarenahe C-Programmierung
+  1. Strukturen
+    1. Aufbau und Initialisierung
+    2. Felder von Strukturen
+    3. Zeiger auf Strukturen
+    4. Bitfelder
+  1. Schleifen
+    1. While
+    2. For
+    3. Do
+    4. Break/Continue
+  1. Präprozessor
+    1. Bibliotheken
+    2. Dateien einbinden
+  1. C-Schlüsselworte
+1. Parallele Schnittstelle als Eingang
+   1. Polling und Interrupttechnologien
+3. Analog-Digital-Wandler
   - Wandlerverfahren
   - ADC des Arduino konfigurieren ([ADC_1](./src/ADC_1))
   - ADC mittels Interrupt ([ADC_2](./src/ADC_2))
-11. Timer
+4. Timer
  - Aufbau und Funktionsweise des Timers
  - Pulsweitenmodulation (PWM)
  - Demo 1: Pulsierende LED
