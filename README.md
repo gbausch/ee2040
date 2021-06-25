@@ -8,9 +8,9 @@ Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie de
 ## Gliederung
 1. Einführung
 2. Zahlensysteme
-3. Aufbau von Mikroprozessoren und -controllern
+3. Aufbau und Funktionsweise von Mikroprozessoren und -controllern
 4. Prinzip der Softwareentwicklung
-5. Aufbau und Funktionsgruppen des ATmega328
+5. Vorstellung des ATmega328
 6. Hardwarenahe C-Programmierung und parallele Schnittstelle des ATmega328
 7. Polling und Interrupts
 8. Serielle Datenkommunikation I (UART)
