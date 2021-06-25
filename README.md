@@ -22,6 +22,7 @@ Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie de
 **IDE:**
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [MPLAB X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) (Programmer/Debugger notwendig)
+- [MPLAB XC Compiler](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
 - [MPLAB Xpress](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xpress) (cloudbasiert)
 - [Atmel Studio 7](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices) (veraltet)
 
@@ -29,11 +30,15 @@ Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie de
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE)
 - [MPLAB Snap](https://www.microchip.com/developmenttools/ProductDetails/PartNO/PG164100)
 
+**Hardware:**
+- [Arduino UNO Rev3](https://store.arduino.cc/arduino-uno-rev3) (Original)
+- [Arduino UNO Rev3](https://www.az-delivery.de/collections/arduino-kompatible-boards/products/uno-r3) (AZDelivery)
+- Steckbrett, LEDs, Jumper-Kabel, Widerstände, Taster
 
 ## Empfohlene Literatur
 * Datenblatt [ATmega328](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
 * [Programmieren lernen mit der Programmiersprache C](https://www.c-howto.de)
-* Thomas Brühlmann (2019): [Arduino - Praxiseinstieg](https://www.mitp.de/IT-WEB/Elektronik-Maker/Arduino-Praxiseinstieg-oxid.html),  mitp Verlag
-* John Nussey (2015): [Arduino für Dummies](https://www.wiley-vch.de/de/fachgebiete/computer-und-informatik/arduino-fuer-dummies-978-3-527-71065-2)
+* Thomas Brühlmann (2019): [Arduino - Praxiseinstieg](https://www.mitp.de/IT-WEB/Elektronik-Maker/Arduino-Praxiseinstieg-oxid.html), mitp Verlag
+* John Nussey (2015): [Arduino für Dummies](https://www.wiley-vch.de/de/fachgebiete/computer-und-informatik/arduino-fuer-dummies-978-3-527-71065-2), Wiley-VCH
 
 
