@@ -1,47 +1,16 @@
 # Grundlagen der Informationstechnik (2040)
 
 ## Beschreibung
-ToDo
+Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie der hardwarenahen Programmierung in C von Mikrocontrollern am Beispiel des [ATmega328](https://www.microchip.com/wwwproducts/en/ATmega328p).
 
-## Gliederung
-Gliederung ergänzen!
+* `src/`: Beispielcode aus den Vorlesungen
+* `icircuit/`: Schaltungsbeispiele (dafür wird [iCircuit](http://icircuitapp.com) benötigt)
 
-1. Hardwarenahe C-Programmierung
-    1. Strukturen
-        1. Aufbau und Initialisierung
-        2. Felder von Strukturen
-        3. Zeiger auf Strukturen
-        4. Bitfelder
-    2. Schleifen
-        1. While
-        2. For
-        3. Do
-        4. Break/Continue
-    3. Präprozessor
-        1. Bibliotheken
-        2. Dateien einbinden
-    1. C-Schlüsselworte
-2. Parallele Schnittstelle als Eingang
-    1. Polling und Interrupttechnologien
-3. UART
-    1. Serielle vs. parallele Kommunikation
-    2. RS-232 vs. UART
-    3. Baudrate, Parität, Start- und Stop-Bit
-    4. Senden von Zeichen mittels UART ([UART_1.c](./src/UART_1))
-5. Analog-Digital-Wandler
-    1. Wandlerverfahren
-    2. ADC des Arduino konfigurieren ([ADC_1](./src/ADC_1))
-    3. ADC mittels Interrupt ([ADC_2](./src/ADC_2))
-6. Timer
-    1. Aufbau und Funktionsweise des Timers
-    2. Pulsweitenmodulation (PWM)
-    3. Demo 1: Pulsierende LED
-    4. Demo 2: ADC mit Timer takten ([Timer_2](./src/Timer_2))
-7. I2C-Schnittstelle (optional)
-    1. Anschluss eines Displays (0,96 Zoll OLED)
-    2. Temperatur/Feuchtigkeitssensor
-
-## Ressourcen
-ToDo
+## Resourcen
+* [Programmieren lernen mit der Programmiersprache C](https://www.c-howto.de)
+* Entwicklungsumgebung [Arduino IDE](https://www.arduino.cc/en/software)
+* Datenblatt [ATmega328](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
+* [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide/0)
+* [MPLAB XC Compiler](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
 
 
