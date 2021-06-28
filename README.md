@@ -38,6 +38,7 @@ Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie de
 ## Empfohlene Literatur
 * Datenblatt [ATmega328](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
 * [Programmieren lernen mit der Programmiersprache C](https://www.c-howto.de)
+* Michael J. Pont: [Embedded C](https://www.safetty.net/publications/embedded-c)
 * Thomas Brühlmann (2019): [Arduino - Praxiseinstieg](https://www.mitp.de/IT-WEB/Elektronik-Maker/Arduino-Praxiseinstieg-oxid.html), mitp Verlag
 * John Nussey (2015): [Arduino für Dummies](https://www.wiley-vch.de/de/fachgebiete/computer-und-informatik/arduino-fuer-dummies-978-3-527-71065-2), Wiley-VCH
 
