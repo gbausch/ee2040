@@ -22,7 +22,7 @@ int main(void)
   // Taster an PD2 (Digital Pin 2 => ohne externen Pull-Down-Widerstand)
   // LED an PD4 (Digital Pin 4)
   DDRD  = 0xfb;                     // set D2 as input, all others to output
-  PORTD = 0x04;                     // set pull-up active on D2
+  PORTD = 0x04;                     // enable pull-up for PD2
   
   // config external interrupts  
   EICRA |= (1<<ISC00);                    // enable INT0 on any logical change  
