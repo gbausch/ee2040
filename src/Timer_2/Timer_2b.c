@@ -25,11 +25,8 @@ int main (void)
                                             // duty cycle = 25% (64)
                                             // duty cycle = 75% (192)
   
-//  TCCR0B |= (1 << CS00);                  // CLK/1 (no prescaling, ~31.2 kHz (=16.000.000/256/2))
-//  TCCR0B |= (1 << CS01);                  // CLK/8   (~3.9 kHz)
-//  TCCR0B |= (1 << CS01) | (1 << CS00);    // CLK/64  (~488.2 Hz)
-  TCCR0B |= (1 << CS02);                    // CLK/256 (~122.04 Hz)
-//  TCCR0B |= (1 << CS02) | (1 << CS00);    // CLK/1024  (~30Hz)
+//  TCCR0B |= (1 << CS01) | (1 << CS00);      // CLK/64  (~488.2 Hz)    => fast
+  TCCR0B |= (1 << CS02);                    // CLK/256 (~122.04 Hz)   => slow
   
   TIMSK0 |= (1 << TOIE0);                   // Timer/Counter0 Overflow Interrupt Enabled
   sei();                                    // enable global interrupt
