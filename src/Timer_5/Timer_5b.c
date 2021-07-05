@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------
-// name: Timer_5.c
+// name: Timer_5b.c
 // date: 2019-01-01          
 // Entwickler: Gerold Bausch
 //
 // Das Programm demonstriert einen Watchdog-Timer-Reset.
 // Wird der Mikrocontroller gestartet und initialisiert, leuchtet die
-// LED (PD7) für eine Sekunde auf. Im Hauptprogramm wird der Watchdog
-// bedient ("gefüttert"), so dass kein WDT-Reset ausgeführt wird.
+// LED (PD7) für 0,5 Sekunden auf. Im Hauptprogramm wird der Watchdog-Timer
+// zurückgesetzt ("gefüttert"), so dass kein WDT-Reset ausgeführt wird.
 // Modifikation: Super-Loop wird so erweitert, dass WDT ausgeführt wird
 //----------------------------------------------------------------------
 
@@ -20,13 +20,9 @@
 
 int main (void)
 {
-  // config watchdog timer
-  // IMPORTANT! Compiler Optimization != 0
-  cli();                                                // disable all interrupts
-  asm("WDR");                                           // reset watchdog
-  WDTCSR |= (1<<WDCE) | (1<<WDE);                       // enable watchdog
-  WDTCSR = (1<<WDE) | (1<<WDP3);                        // 4s / System Reset
-  sei();                                                // enable all interrupts
+
+  wdt_reset();
+  wdt_enable(WDTO_4S);                                  // 4s / System Reset
     
   DDRD  = 0xff;                                         // set all pins on Port D as output
   PORTD = 0x00;                                         // clear all outputs
@@ -39,8 +35,8 @@ int main (void)
     // do nothing here! WDT will reset device
     
     // reset watchdog within 4 seconds prevents reset by watchdog
-    //_delay_ms(2000);
-    //asm("WDR");
+    // _delay_ms(2000);
+    // wdt_reset();
   }
  
 }
