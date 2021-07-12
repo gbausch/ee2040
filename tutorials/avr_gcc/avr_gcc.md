@@ -26,17 +26,17 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ````
 
-Nun muss die Toolchain noch in MPLAB X IDE eingebunden werden. Öffnen Sie dazu `MPLAB X IDE` und wählen unter `MPLAB X IDE` -> `Preferences` aus. Gehe Sie zum Reiter `Embedded` --> `Build Tools`.
+Nun muss die Toolchain noch in MPLAB X IDE eingebunden werden. Öffnen Sie dazu `MPLAB X IDE` und wählen unter `MPLAB X IDE` --> `Preferences` aus. Gehe Sie zum Reiter `Embedded` --> `Build Tools`.
 
 Klicken Sie auf `Add...` um eine neue Toolchain hinzuzufügen:
 
 ![Neue Toolchain hinzufügen](img/mplab_avr-gcc_macos_01.png)
 
-Wählen Sie danach den Pfad aus, in dem sich die Toolchain befindet. Wird AVR-GCC mittels `brew install avr-gcc` installiert, befinden sich die Programme im Ordner `/usr/local/bin`. Klicken Sie anschließend auf `OK`.
+Wählen Sie danach den Pfad aus, in dem sich die Toolchain befindet. Wurde AVR-GCC mittels `brew` installiert, befinden sich die Programme im Ordner `/usr/local/bin`. Das Programm erkennt automatisch, dass sich der `AVR-GCC` im Ordner befindet und aktualisiert den Eintrag im Feld `Version` auf `AVR`. Klicken Sie anschließend auf `OK`.
 
 ![Pfadangabe für neue Toolchain](img/mplab_avr-gcc_macos_02.png)
 
-MPLAB X IDE fügt automatisch alle entsprechenden Programme hinzu:
+MPLAB X IDE fügt automatisch alle entsprechenden Programme hinzu.
 
 ![Übersicht der neu hinzugefügten Toolchain](img/mplab_avr-gcc_macos_03.png)
 
