@@ -4,6 +4,7 @@ Dieses Modul vermittelt Grundkenntnisse des Aufbaus, der Funktionsweise sowie de
 
 * `icircuit/`: Schaltungsbeispiele (für [iCircuit](http://icircuitapp.com))
 * `src/`: Beispielcode für den ATmega328
+* `tutorials/`: Nützliche Anleitungen
 
 ## Gliederung
 1. Einführung
