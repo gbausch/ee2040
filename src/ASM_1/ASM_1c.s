@@ -14,15 +14,15 @@
     jmp main
 
 main:
-    ldi r16, 0x20	    ; load 0x20 -> R16
-    out DDRB, r16	    ; set PB5 as output
+    ldi r16, 0x20       ; load 0x20 -> R16
+    out DDRB, r16       ; set PB5 as output
     
 loop:
-    out  PINB, r16	  ; toggle PB5
+    out  PINB, r16      ; toggle PB5
     
-    ldi  r17, 41	    ; using r18, r19 and r20
-    ldi  r18, 150	    ; to generate delay
-    ldi  r29, 127	    ; see: http://darcy.rsgc.on.ca/ACES/TEI4M/AVRdelay.html
+    ldi  r17, 41        ; using 3 registers (r17, r18, r20)
+    ldi  r18, 150       ; to generate long delay (500ms)
+    ldi  r19, 127       ; see: http://darcy.rsgc.on.ca/ACES/TEI4M/AVRdelay.html
     
 wait:
     dec  r19
@@ -32,4 +32,4 @@ wait:
     dec  r17
     brne wait
     
-    rjmp loop		      ; jump to label 'loop'
+    rjmp loop           ; jump to label 'loop'
