@@ -19,7 +19,7 @@ main:
     out DDRB, r16           ; set PB5 as output
     
 loop:
-    out PORTB, r16	        ; enable PB5
-    out PORTB, r17	        ; disable PB5
+    out PORTB, r16          ; enable PB5
+    out PORTB, r17          ; disable PB5
     
     jmp loop                ; jump to label 'loop'
