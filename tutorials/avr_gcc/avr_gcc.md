@@ -9,11 +9,24 @@ Im folgenden wird die Einbindung des AVR-GCC beschrieben.
 
 ## AVR-GCC für MacOS
 
+Am einfachsten lässt sich die `avr-gcc`-Toolchain unter MacOS mittels [Homebrew](https://brew.sh) instllieren. Geben Sie dazu im Terminal folgendes ein:
+
 ```bash
 brew install avr-gcc
 ```
 
-Nach der Installation muss AVR-GCC noch in MPLAB X IDE eingebunden werden. Gehen Sie dazu in `MPLAB X IDE` --> `Preferences` und wählen den Reiter `Embedded` und `Build Tools`.
+Nach erfolgreicher Installation ist die Toolchain nutzbar. Prüfen Sie dies durch Eingabe im Terminal:
+
+```bash
+> avr-gcc --version
+
+avr-gcc (Homebrew AVR GCC 9.3.0_3) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+````
+
+Nun muss die Toolchain noch in MPLAB X IDE eingebunden werden. Gehen Sie dazu in `MPLAB X IDE` --> `Preferences` und wählen den Reiter `Embedded` und `Build Tools`.
 
 Klicken Sie auf `Add...` um eine neue Toolchain hinzuzufügen:
 
