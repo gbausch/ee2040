@@ -11,13 +11,13 @@ Im folgenden wird die Einbindung des AVR-GCC beschrieben.
 
 Am einfachsten lässt sich die `avr-gcc`-Toolchain unter MacOS mittels [Homebrew](https://brew.sh) instllieren. Geben Sie dazu im Terminal folgendes ein:
 
-```bash
-brew install avr-gcc
+```shell
+> brew install avr-gcc
 ```
 
 Nach erfolgreicher Installation ist die Toolchain nutzbar. Prüfen Sie dies durch Eingabe im Terminal:
 
-```bash
+```shell
 > avr-gcc --version
 
 avr-gcc (Homebrew AVR GCC 9.3.0_3) 9.3.0
