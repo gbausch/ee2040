@@ -26,7 +26,7 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ````
 
-Nun muss die Toolchain noch in MPLAB X IDE eingebunden werden. Öffnen Sie dazu `MPLAB X IDE` und wählen unter `MPLAB X IDE` --> `Preferences` aus. Gehe Sie zum Reiter `Embedded` --> `Build Tools`.
+Nun muss die Toolchain noch in MPLAB X IDE eingebunden werden. Öffnen Sie dazu `MPLAB X IDE` und wählen unter `MPLAB X IDE` ==> `Preferences` aus. Gehe Sie zum Reiter `Embedded` --> `Build Tools`.
 
 Klicken Sie auf `Add...` um eine neue Toolchain hinzuzufügen:
 
