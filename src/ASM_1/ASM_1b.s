@@ -14,10 +14,10 @@
     jmp main
 
 main:
-    ldi r16, 0x20	    ; load 0x20 -> R16
-    out DDRB, r16     ; set PB5 as output
+    ldi r16, 0x20         ; load 0x20 -> R16
+    out DDRB, r16         ; set PB5 as output
     
 loop:
-    out PINB, r16     ; toggle PB5
+    out PINB, r16         ; toggle PB5
     
-    jmp loop		      ; jump to label 'loop'
+    jmp loop              ; jump to label 'loop'
