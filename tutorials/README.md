@@ -6,5 +6,5 @@ Bitte informieren Sie mich, wenn Sie Fehler finden oder sonstige Hinweise haben.
 
 - [Installation von MPLAB X IDE](mplab_installation/README.md)
 - Erstellung eines Projekts in MPLAB X IDE (in Arbeit)
-- [Verwendung von AVR-GCC unter MPLAB X](avr_gcc/avr_gcc.md)
-- [Verwendung des AVR-Assemblers mit MPLAB X IDE](setup_asm/setup_asm.md)
+- [Verwendung von AVR-GCC unter MPLAB X](avr_gcc/README.md)
+- [Verwendung des AVR-Assemblers mit MPLAB X IDE](setup_asm/README.md)
