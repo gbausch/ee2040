@@ -23,8 +23,8 @@
 int main (void) {
   
   // set baud rate
-  UBRR0H = (unsigned char)(BAUD_RATE_9600_BPS>>8);        // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(BAUD_RATE_9600_BPS);           // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(BAUD_RATE_9600_BPS>>8);              // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(BAUD_RATE_9600_BPS);                 // Lower 8 bits of the baud rate value
   
   UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);  // enable receiver, transmitter and RX ISR
   UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);                // Use 8-bit character sizes 
@@ -41,7 +41,7 @@ int main (void) {
 
 ISR(USART_RX_vect) {
   
-  char buffer;
+  uint8_t buffer;
   
   buffer = UDR0;                                  // fetch the received byte
   
