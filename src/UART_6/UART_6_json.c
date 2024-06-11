@@ -17,14 +17,14 @@
 #include <util/delay.h>
 #include <stdio.h>
 
-void UART_init(unsigned int baudrate);
-void UART_tx(char *string);
+void UART_init(uint16_t baudrate);
+void UART_tx(uint8_t *string);
 
 int main (void) {
    
   DDRB = 0x00;        // Port B as input
   
-  char buffer[64];
+  uint8_t buffer[64];
   
   UART_init(9600);    // init uart
   
@@ -39,20 +39,20 @@ int main (void) {
   return 0;
 }
 
-void UART_init(unsigned int baudrate) {
+void UART_init(uint16_t baudrate) {
   
-  unsigned int prescale = ((F_CPU/(baudrate * 16UL))-1);
+  uint16_t prescale = ((F_CPU/(baudrate * 16UL))-1);
   
   // set baud rate
-  UBRR0H = (unsigned char)(prescale>>8);        // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(prescale);           // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(prescale>>8);              // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(prescale);                 // Lower 8 bits of the baud rate value
   
   UCSR0B |= (1 << RXEN0);                       // enable receiver
   UCSR0B |= (1 << TXEN0);                       // enable transmitter
   UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);      // Use 8-bit character sizes
 }
 
-void UART_tx(char *string) {
+void UART_tx(uint8_t *string) {
   
   uint16_t i = 0;
   
