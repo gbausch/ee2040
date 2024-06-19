@@ -27,12 +27,12 @@ int main (void)
   UCSR0B |= (1 << TXEN0);                           // enable transmitter 0
   UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);          // use 8-bit character sizes (8N1)
     
-  unsigned char buffer = 'n';    // data to transmit
+  uint8_t buffer = 'n';                             // data to transmit
 
   while(1) {
       
-    UDR0 = buffer;               // send data from buffer
-    _delay_ms(1000);             // wait for 1 sec
+    UDR0 = buffer;                                  // send data from buffer
+    _delay_ms(1000);                                // wait for 1 sec
   }
     
   return 0;

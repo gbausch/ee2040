@@ -20,20 +20,20 @@
 // #define USART_BAUDRATE 9600
 // #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1) 
 
-void send_usart(unsigned char *data);   // function prototype
+void send_usart(uint8_t *data);   // function prototype
 
 int main (void)
 { 
   // set baud rate
-  UBRR0H = (unsigned char)(BAUD_RATE_9600_BPS>>8);  // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(BAUD_RATE_9600_BPS);     // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(BAUD_RATE_9600_BPS>>8);  // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(BAUD_RATE_9600_BPS);     // Lower 8 bits of the baud rate value
 
   // enable receiver and transmitter
   UCSR0B |= (1 << TXEN0);                           // enable transmitter 0
   UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);          // use 8-bit character sizes (8N1)
     
   // buffer
-  unsigned char buffer[] = "Hallo Welt\n";          // buffer to transmit
+  uint8_t buffer[] = "Hallo Welt\n";          // buffer to transmit
 
   while(1) {
 
@@ -44,7 +44,7 @@ int main (void)
   return 0;
 }
 
-void send_usart(unsigned char *data) {
+void send_usart(uint8_t *data) {
   
   uint16_t i = 0;
   

@@ -12,14 +12,13 @@
 #include <util/delay.h>
 #include <stdio.h>
 
-void UART_init(unsigned int baudrate);
-void UART_tx(char *string);
+void UART_init(uint16_t baudrate);
+void UART_tx(uint8_t *string);
 
 int main (void) {
   
-  char buffer[64];
-  unsigned int adc_val;
-  unsigned int tempC;
+  uint8_t buffer[64];
+  uint16_t adc_val;
   
   UART_init(9600);                                          // init UART w/9600 baud
   
@@ -41,35 +40,32 @@ int main (void) {
     adc_val = (uint16_t)(ADCH<<8) + (uint16_t)(ADCL);       // get high/low byte from ADC register
   //adc_val = ADC;                                          // get 16 bit ADC value (same as above)
 
-    sprintf(buffer, "Internal Temp Sensor value: %d\n", adc_val);
+    sprintf(buffer, "Internal temperature: %d\n", adc_val);
     UART_tx(buffer);                                        // format string and tx
     
     _delay_ms(1000);                                        // wait 1 sec
- 
   }
-
 }
 
-void UART_init(unsigned int baudrate) {
+void UART_init(uint16_t baudrate) {
   
-  unsigned int prescale = ((F_CPU/(baudrate * 16UL))-1);
+  uint16_t prescale = ((F_CPU/(baudrate * 16UL))-1);
   
   // set baud rate
-  UBRR0H = (unsigned char)(prescale>>8);                    // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(prescale);                       // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(prescale>>8);                    // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(prescale);                       // Lower 8 bits of the baud rate value
   
-  UCSR0B |= (1 << RXEN0);                                   // enable receiver
-  UCSR0B |= (1 << TXEN0);                                   // enable transmitter
-  UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);                  // Use 8-bit character sizes
+  UCSR0B |= (1 << RXEN0);                             // enable receiver
+  UCSR0B |= (1 << TXEN0);                             // enable transmitter
+  UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);            // Use 8-bit character sizes
 }
 
-void UART_tx(char *string) {
+void UART_tx(uint8_t *string) {
   
   uint16_t i = 0;
   
-  while(string[i] != 0) {                                   // send data until end of buffer
-    
-    while (( UCSR0A & (1<<UDRE0)) == 0) {};                 // wait for empty tx buffer
-    UDR0 = string[i++];                                     // send buffer
+  while(string[i] != 0) {                             // send data until end of buffer    
+    while (( UCSR0A & (1<<UDRE0)) == 0) {};           // wait for empty tx buffer
+    UDR0 = string[i++];                               // send buffer
   }
 }

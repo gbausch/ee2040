@@ -13,9 +13,9 @@
 
 int main(void)
 {
-  DDRD = 0xff;          // set port D as output
-  DDRB = 0x0f;          // set pin 0..3 on Port B as input (DDRx: 1 => Input, 0 => Output)
-  PORTB |=  (1 << 0);   // activate internal pull-up resistor for PB0
+  DDRD   = 0xff;       // set port D as output
+  DDRB   = 0xf0;       // set pin 0..3 on Port B as input (DDRx: 0 => Input, 1 => Output)
+  PORTB |= (1 << 0);   // activate internal pull-up resistor for PB0
 
   while(1) {
       PORTD = PINB;    // map input from Port B to output Port D

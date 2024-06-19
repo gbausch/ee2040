@@ -17,8 +17,8 @@
 #define ADC_VREF 5
 #define ADC_RES (1<<10)
 
-void UART_init(unsigned int baudrate);
-void UART_tx(char *string);
+void UART_init(uint16_t baudrate);
+void UART_tx(uint8_t *string);
 
 int main (void) {
   
@@ -31,48 +31,44 @@ int main (void) {
   ADCSRA |= (1 << ADIE);                                    // enable ADC interrupt
   ADCSRA |= (1 << ADEN);                                    // enable ADC
   
-  //ADMUX  |= (1 << MUX3);                                                //select ADC channel 0
+  //ADMUX  |= (1 << MUX3);                                  //select ADC channel 0
   
   sei();                                                    // enable global interrupt  
   
   while(1) {
-    
     ADCSRA |= (1 << ADSC);                                  // start single conversion    
     _delay_ms(1000);                                        // wait 1 sec
- 
   }
-
 }
 
 ISR(ADC_vect) {
   
-  char buffer[64];
+  uint8_t buffer[64];
   
   // output of ADC value in volt    
   sprintf(buffer, "ADC value: %.3fV\n", (float)ADC*(5.0/1024.0));
   UART_tx(buffer);
 }
 
-void UART_init(unsigned int baudrate) {
+void UART_init(uint16_t baudrate) {
   
-  unsigned int prescale = ((F_CPU/(baudrate * 16UL))-1);
+  uint16_t prescale = ((F_CPU/(baudrate * 16UL))-1);
   
   // set baud rate
-  UBRR0H = (unsigned char)(prescale>>8);                    // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(prescale);                       // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(prescale>>8);                    // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(prescale);                       // Lower 8 bits of the baud rate value
   
-  UCSR0B |= (1 << RXEN0);                                   // enable receiver
-  UCSR0B |= (1 << TXEN0);                                   // enable transmitter
-  UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);                  // Use 8-bit character sizes
+  UCSR0B |= (1 << RXEN0);                             // enable receiver
+  UCSR0B |= (1 << TXEN0);                             // enable transmitter
+  UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);            // Use 8-bit character sizes
 }
 
-void UART_tx(char *string) {
+void UART_tx(uint8_t *string) {
   
   uint16_t i = 0;
   
-  while(string[i] != 0) {                                   // send data until end of buffer
-    
-    while (( UCSR0A & (1<<UDRE0)) == 0) {};                 // wait for empty tx buffer
-    UDR0 = string[i++];                                     // send buffer
+  while(string[i] != 0) {                             // send data until end of buffer    
+    while (( UCSR0A & (1<<UDRE0)) == 0) {};           // wait for empty tx buffer
+    UDR0 = string[i++];                               // send buffer
   }
 }

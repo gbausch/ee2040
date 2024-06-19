@@ -26,8 +26,8 @@ int main(void)
   PCICR  |= (1 << PCIE0);         // enable PCIE0 (PCINT7..0)
   PCMSK0 |= (1 << PCINT0);        // enable PCINT0
     
-  SREG |= (1 << 7);               // set Global Interrupt Enable
-//sei();                          // set global interrupt flag (alternative)
+  SREG |= (1 << 7);               // enable global interrupts
+//sei();                          // enable global interrupts (alternative)
   
   while(1){};
 }
