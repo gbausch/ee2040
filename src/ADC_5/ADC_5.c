@@ -12,29 +12,26 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include <stdio.h>
-
-#define ADC_VREF 5
-#define ADC_RES (1<<10)
 
 void UART_init(uint16_t baudrate);
 
 int main (void) {
+
+  // init UART
+  UART_init(9600);                                     // init UART w/9600 baud (8N1)
   
-  UART_init(9600);                                          // init UART w/9600 baud
+  // init adc
+  ADMUX  |= (1 << REFS0);                              // ADC_ref = AVcc
+  ADMUX  |= (1 << ADLAR);                              // left-adjust result, return only upper 8 bits
   
-// init adc
-  ADMUX  |= (1 << REFS0);                                   // ADC_ref = AVcc
-  ADMUX  |= (1 << ADLAR);                                   // left-adjust result, return only upper 8 bits
-  
-  ADCSRA |= (1 << ADPS1) | (1 << ADPS0);                    // Prescaler=8 (16.000.000/8=2MHz)
-  ADCSRA |= (1 << ADEN);                                    // enable ADC
-  ADCSRA |= (1 << ADATE);                                   // auto-trigger enable
-  ADCSRA |= (1 << ADSC);                                    // start first conversion
+  ADCSRA |= (1 << ADPS1) | (1 << ADPS0);               // Prescaler=8 (16.000.000/8=2MHz)
+  ADCSRA |= (1 << ADEN);                               // enable ADC
+  ADCSRA |= (1 << ADATE);                              // auto-trigger enable
+  ADCSRA |= (1 << ADSC);                               // start first conversion
   
   while(1) {
-    while (( UCSR0A & (1<<UDRE0)) == 0) {};                 // wait for empty tx buffer
-    UDR0 = ADCH;                                            // transmit only upper ADC value
+    while (( UCSR0A & (1<<UDRE0)) == 0) {};            // wait for empty tx buffer
+    UDR0 = ADCH;                                       // transmit only upper ADC value
   }
 }
 
