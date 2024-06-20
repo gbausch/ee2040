@@ -15,7 +15,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-int main (void)
+void main (void)
 {
   
   DDRD  = 0xff;     // set all pins on Port D as output
@@ -34,8 +34,6 @@ int main (void)
   sei();                                    // enable global interrupt
 
   while(1) {}
-    
-  return 0;
 }
 
 
@@ -47,6 +45,5 @@ ISR(TIMER0_COMPA_vect) {
   else {
     PORTD ^= (1 << 7);                      // toggle LED7
     counter = 0;                            // reset counter
-  } 
-  
+  }  
 }

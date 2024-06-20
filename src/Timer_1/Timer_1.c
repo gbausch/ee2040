@@ -14,7 +14,7 @@
 
 #include <avr/io.h>
 
-int main (void)
+void main (void)
 {
   
   DDRD  = 0xff;     // set all pins on Port D as output
@@ -32,15 +32,12 @@ int main (void)
     
     while((TIFR0 & (1 << TOV0)) == 0) {};   // check TOV0 flag
     
-    if (counter < 30) counter++;            // count till 30; => 1Hz (because CLK/1024 is still 30 Hz)
+    if (counter < 30) counter++;            // count up to 30; => 1Hz (because CLK/1024 is still 30 Hz)
     else {
       PORTD ^= (1 << 7);                    // toggle LED7
       counter = 0;                          // reset counter
     }
     
-    TIFR0 |= (1 << TOV0);                   // clear TOV0 flag   
-    
+    TIFR0 |= (1 << TOV0);                   // clear TOV0 flag 
   }
-    
-  return 0;
 }

@@ -1,10 +1,12 @@
 // ---------------------------------------------------------------------
-// name: Timer_2b.c
-// date: 2019-01-01          
+// name: Timer_2c.c
+// date: 2024-06-19          
 // Entwickler: Gerold Bausch
 //
 // Das Programm konfiguriert den Timer0 im PWM-Modus und gibt ein
-// pulsierendes PWM-Signal über den Pin PD6 aus.
+// PWM-Signal über den Pin PD6 aus. Dabei wird der duty cycle 
+// kontinuierlich von 0 auf 255 erhöht und anschließend wieder auf
+// 0 verringert
 //----------------------------------------------------------------------
 
 #define F_CPU 16000000UL
@@ -29,7 +31,7 @@ int main (void)
   while(1) {}
 }
 
-// interrupt service routine for Timer0 Overflow
+
 ISR(TIMER0_OVF_vect) {
   
   static uint8_t dir  = 0;                    // 0 = up; 1 = down

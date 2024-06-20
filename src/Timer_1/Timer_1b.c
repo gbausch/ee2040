@@ -31,13 +31,11 @@ int main (void)
   sei();                                    // enable global interrupt
 
   while(1) {}
-    
-  return 0;
 }
 
 ISR(TIMER0_OVF_vect) {
   
-  static unsigned int counter = 0;          // declare and initialize counter
+  static uint8_t counter = 0;               // declare and initialize counter
   
   if (counter < 30) counter++;              // count till 30; => 1Hz (because CLK/1024 is still 30 Hz)
   else {
