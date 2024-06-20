@@ -30,7 +30,7 @@ int main (void)
   
   DDRB  &= (1 << 0);                    // set PB0 as input (button)
   
-  UART_init(9600);                      // init uart with 9600 baud
+  UART_init(9600);             // init uart with 9600 baud
                                         
   // timer/counter1 in normal mode; just counting ticks
   TCCR1B |= (1 << ICNC1);               // enable input capture noise canceler
@@ -55,26 +55,24 @@ int main (void)
     PORTD = 0x00;                       // GO!
     
     TIFR1 |= (1 << ICF1);               // clear input capture flag
-    TCNT1 = 0;                          // clear timer/counter1
+    TCNT1  = 0;                         // clear timer/counter1
     
     while ((TIFR1 & (1<<ICF1)) == 0);   // wait for button press
-    t = ICR1;
+    t = ICR1;                           // read timer value
     
     // print result
     sprintf(buffer, "t: %u\n", t);
     UART_tx(buffer);
-
   }
- 
 }
 
 void UART_init(unsigned int baudrate) {
   
-  unsigned int prescale = ((F_CPU/(baudrate * 16UL))-1);
+  uint16_t prescale = ((F_CPU/(baudrate * 16UL))-1);
   
   // set baud rate
-  UBRR0H = (unsigned char)(prescale>>8);        // Upper 8 bits of the baud rate value
-  UBRR0L = (unsigned char)(prescale);           // Lower 8 bits of the baud rate value
+  UBRR0H = (uint8_t)(prescale>>8);              // Upper 8 bits of the baud rate value
+  UBRR0L = (uint8_t)(prescale);                 // Lower 8 bits of the baud rate value
   
   UCSR0B |= (1 << RXEN0);                       // enable receiver
   UCSR0B |= (1 << TXEN0);                       // enable transmitter
