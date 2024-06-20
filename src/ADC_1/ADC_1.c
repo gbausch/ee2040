@@ -64,8 +64,8 @@ void UART_tx(uint8_t *string) {
   
   uint16_t i = 0;
   
-  while(string[i] != 0) {                             // send data until end of buffer    
-    while (( UCSR0A & (1<<UDRE0)) == 0) {};           // wait for empty tx buffer
+  while (string[i] != 0) {                            // send data until end of buffer    
+    while ((UCSR0A & (1<<UDRE0)) == 0) {};            // wait for empty tx buffer
     UDR0 = string[i++];                               // send buffer
   }
 }

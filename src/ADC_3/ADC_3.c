@@ -14,9 +14,6 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 
-#define ADC_VREF 5
-#define ADC_RES (1<<10)
-
 void UART_init(uint16_t baudrate);
 void UART_tx(uint8_t *string);
 
@@ -24,7 +21,7 @@ int main (void) {
   
   UART_init(9600);                                          // init UART w/9600 baud
   
-// init adc
+  // init adc
   ADMUX  |= (1 << REFS0);                                   // ADC_ref = AVcc
   
   ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);     // Prescaler=128 (16.000.000/128=125kHz)
@@ -67,8 +64,8 @@ void UART_tx(uint8_t *string) {
   
   uint16_t i = 0;
   
-  while(string[i] != 0) {                             // send data until end of buffer    
-    while (( UCSR0A & (1<<UDRE0)) == 0) {};           // wait for empty tx buffer
+  while (string[i] != 0) {                             // send data until end of buffer    
+    while ((UCSR0A & (1<<UDRE0)) == 0) {};           // wait for empty tx buffer
     UDR0 = string[i++];                               // send buffer
   }
 }

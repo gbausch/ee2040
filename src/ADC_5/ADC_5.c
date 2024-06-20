@@ -16,6 +16,14 @@
 void UART_init(uint16_t baudrate);
 
 int main (void) {
+  
+  uint8_t adcValue = 0;
+  uint8_t ledValue = 0;
+  uint8_t i;
+  
+  // LED init
+  DDRD  = 0xff;
+  PORTD = 0x00;
 
   // init UART
   UART_init(9600);                                     // init UART w/9600 baud (8N1)
@@ -31,7 +39,16 @@ int main (void) {
   
   while(1) {
     while (( UCSR0A & (1<<UDRE0)) == 0) {};            // wait for empty tx buffer
-    UDR0 = ADCH;                                       // transmit only upper ADC value
+    
+    adcValue = ADCH;                                   // get 8 bit adc value
+    UDR0 = adcValue;                                   // transmit only upper ADC value
+    
+    ledValue = (uint8_t)(adcValue/32);                 // convert adc value to number of LEDs
+    
+    PORTD = 0;                                         // reset LEDs
+    for (i = 0; i <= ledValue; i++) {                  // enable LEDs
+      PORTD |= (1 << i);
+    }    
   }
 }
 
