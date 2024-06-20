@@ -14,8 +14,7 @@
 
 #include <avr/io.h>
 
-void main (void)
-{
+void main (void) {
   
   DDRD  = 0xff;     // set all pins on Port D as output
   PORTD = 0x00;     // clear all outputs
@@ -26,7 +25,7 @@ void main (void)
 //  TCCR0B |= (1 << CS02);                  // CLK/256 (~122.04 Hz)
   TCCR0B |= (1 << CS02) | (1 << CS00);      // CLK/1024  (~30Hz)
   
-  unsigned int counter = 0;                 // counter
+  uint16_t counter = 0;                     // counter
 
   while(1) {
     

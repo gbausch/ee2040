@@ -15,8 +15,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-void main (void)
-{
+void main (void) {
   
   DDRD  = 0xff;     // set all pins on Port D as output
   PORTD = 0x00;     // clear all outputs
@@ -39,7 +38,7 @@ void main (void)
 
 ISR(TIMER0_COMPA_vect) {
   
-  static unsigned int counter = 0;          // declare and initialize counter
+  static uint8_t counter = 0;               // declare and initialize counter
   
   if (counter < 30) counter++;              // count till 30; => 1Hz (because CLK/1024 is still 30 Hz)
   else {

@@ -11,8 +11,7 @@
 
 #include <avr/io.h>
 
-int main (void)
-{
+int main (void) {
   
   DDRD  = 0xff;     // set all pins on Port D as output
   PORTD = 0x00;     // clear all outputs
