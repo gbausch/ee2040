@@ -31,7 +31,7 @@ int main (void)
   DDRD  = 0xff;                                         // set all pins on Port D as output
   PORTD = 0x00;                                         // clear all outputs
   
-  PORTD |= (1 << 7);                                    // sets LED7
+  PORTD |= (1 << 7);                                    // set LED7
   _delay_ms(500);                                       // wait 500 ms
   PORTD &= ~(1 << 7);                                   // clear LED7
   
