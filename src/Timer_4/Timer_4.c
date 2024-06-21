@@ -4,14 +4,13 @@
 // Entwickler: Gerold Bausch
 //
 // ADC-0 wird eingelesen und damit die Pulsbreite der PWM gesteuert
+// Poti an A0; Ausgang = PD6
 //----------------------------------------------------------------------
-
-#define F_CPU 16000000UL
 
 #include <avr/io.h>
 
-void main (void)
-{
+void main (void) {
+
   // init gpio
   DDRD  = 0xff;     // set all pins on Port D as output
   PORTD = 0x00;     // clear all outputs
