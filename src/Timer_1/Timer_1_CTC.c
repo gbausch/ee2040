@@ -17,7 +17,7 @@ void main (void) {
   DDRD  = 0xff;     // set all pins on Port D as output
   PORTD = 0x00;     // clear all outputs
   
-  // setup timers w/interrupt and capture/compare in CTC mode
+  // setup timer w/interrupt and capture/compare in CTC mode
   TCCR0A |= (1 << WGM01);                   // enable timer0 CTC mode
   TIMSK0 |= (1 << OCIE0A);                  // enable timer0 compare interrupt
   
@@ -28,7 +28,6 @@ void main (void) {
 
   while(1) {}
 }
-
 
 ISR(TIMER0_COMPA_vect) {
   
