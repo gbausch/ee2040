@@ -9,7 +9,7 @@
 
 #include <avr/io.h>
 
-void main (void) {
+int main (void) {
 
   // init gpio
   DDRD  = 0xff;     // set all pins on Port D as output
@@ -34,4 +34,5 @@ void main (void) {
   while(1) {
     OCR0A = ADCH;                           // update OCR0A from ADC high byte
   }
+  return 0;
 }

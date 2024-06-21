@@ -24,8 +24,8 @@ int main (void)
   // IMPORTANT! Compiler Optimization != 0
   cli();                                                // disable all interrupts
   asm("WDR");                                           // reset watchdog
-  WDTCSR |= (1<<WDCE) | (1<<WDE);                       // enable watchdog
-  WDTCSR = (1<<WDE) | (1<<WDP3);                        // 4s / System Reset
+  WDTCSR |= (1<<WDE) | (1<<WDCE);                       // enable watchdog
+  WDTCSR  = (1<<WDE) | (1<<WDP3);                       // 4s / System Reset
   sei();                                                // enable all interrupts
     
   DDRD  = 0xff;                                         // set all pins on Port D as output
@@ -36,11 +36,10 @@ int main (void)
   PORTD &= ~(1 << 7);                                   // clear LED7
   
   while(1) {
-    // do nothing here! WDT will reset device
-    
+    // do nothing here! WDT will reset device    
     // reset watchdog within 4 seconds prevents reset by watchdog
-    //_delay_ms(2000);
-    //asm("WDR");
+    // _delay_ms(2000);
+    // asm("WDR");
   }
- 
+  return 0;
 }

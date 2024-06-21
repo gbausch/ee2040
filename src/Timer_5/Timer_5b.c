@@ -18,8 +18,7 @@
 #include <avr/interrupt.h>
 
 
-int main (void)
-{
+int main (void) {
 
   wdt_reset();
   wdt_enable(WDTO_4S);                                  // 4s / System Reset
@@ -32,11 +31,10 @@ int main (void)
   PORTD &= ~(1 << 7);                                   // clear LED7
   
   while(1) {
-    // do nothing here! WDT will reset device
-    
+    // do nothing here! WDT will reset device    
     // reset watchdog within 4 seconds prevents reset by watchdog
     // _delay_ms(2000);
     // wdt_reset();
   }
- 
+  return 0;
 }
