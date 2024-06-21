@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------
-// name: Timer_1.c
+// name: Timer_1_Polling.c
 // date: 2019-01-01          
 // Entwickler: Gerold Bausch
 //
@@ -10,19 +10,15 @@
 // mit einer Frequenz von 30 Hz blinken zu lassen.
 //----------------------------------------------------------------------
 
-#define F_CPU 16000000UL
-
 #include <avr/io.h>
 
 void main (void) {
   
-  DDRD  = 0xff;     // set all pins on Port D as output
-  PORTD = 0x00;     // clear all outputs
+  // setup LEDs
+  DDRD  = 0xff;                             // set all pins on Port D as output
+  PORTD = 0x00;                             // clear all outputs
   
-//  TCCR0B |= (1 << CS00);                  // CLK/1 (no prescaling, ~31.2 kHz (=16.000.000/256/2))
-//  TCCR0B |= (1 << CS01);                  // CLK/8   (~3.9 kHz)
-//  TCCR0B |= (1 << CS01) | (1 << CS00);    // CLK/64  (~488.2 Hz)
-//  TCCR0B |= (1 << CS02);                  // CLK/256 (~122.04 Hz)
+  // setup timer
   TCCR0B |= (1 << CS02) | (1 << CS00);      // CLK/1024  (~30Hz)
   
   uint16_t counter = 0;                     // counter
