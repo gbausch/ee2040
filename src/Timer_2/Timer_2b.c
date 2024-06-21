@@ -7,8 +7,6 @@
 // pulsierendes PWM-Signal über den Pin PD6 aus.
 //----------------------------------------------------------------------
 
-#define F_CPU 16000000UL
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
@@ -17,11 +15,9 @@ int main (void) {
   DDRD  = 0xff;                               // set all pins on Port D as output
   PORTD = 0x00;                               // clear all outputs
   
-  TCCR0A |= (1 << WGM01) | (1 << WGM00);      // Waveform Generation Mode: Fast PWM
+  TCCR0A |= (1 << WGM02) | (1 << WGM00);      // Waveform Generation Mode: PWM
   TCCR0A |= (1 << COM0A1);                    // Clear OC0A on compare match
-  
-  TCCR0B |= (1 << CS02);                      // CLK/256 (~122.04 Hz)   => slow
-  
+  TCCR0B |= (1 << CS02);                      // CLK/256 (~122.04 Hz)
   TIMSK0 |= (1 << TOIE0);                     // Timer/Counter0 Overflow Interrupt Enabled
   sei();                                      // enable global interrupt
   
