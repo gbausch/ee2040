@@ -9,15 +9,10 @@
 //
 //----------------------------------------------------------------------
 
-// Achtung: Externen Pull-Down-Widerstand am Taster verwenden!
-
 #define F_CPU 16000000UL
 
 #include <avr/io.h>
 #include <util/delay.h>
-
-#define BIT_IS_SET(byte, bit) (byte & (1 << bit))
-#define BIT_IS_CLEAR(byte, bit) (!(byte & (1 << bit)))
 
 int main(void)
 {
@@ -27,11 +22,8 @@ int main(void)
   PORTD = 0x00;                   // disable all LEDs
 
   while(1) {
-    
-    if (BIT_IS_SET(PINB, 0)) {
-      
-      // toggle LED2
-      //PORTD ^= PIN2;
+  
+    if (!(PINB & 0x01)) {         // check, if bit 0 is clear in PINB
       
       // increment PORTD
       PORTD++;
