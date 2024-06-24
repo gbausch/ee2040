@@ -23,7 +23,7 @@ int main(void)
 
   while(1) {
   
-    if (!(PINB & 0x01)) {         // check, if bit 0 is clear in PINB
+    if (!(PINB & 0x01)) {         // check, if PB0 is clear
       
       // increment PORTD
       PORTD++;
