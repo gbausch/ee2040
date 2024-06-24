@@ -4,7 +4,7 @@
 // Entwickler: Gerold Bausch
 //
 // Das Programm schaltet alle Portpins des Port D zu Ausgängen,
-// die Portpins 0, 1, 2, 3 des Port B zu Eingängen und
+// den Portpin 0 des Port B als Eingang und
 // und gibt anschließend den Tasterzustand Bitmuster aus.
 //
 //----------------------------------------------------------------------
@@ -13,11 +13,12 @@
 
 int main(void)
 {
-  DDRD = 0xff;          // set port D as output
-  DDRB = 0x0f;          // set pin 0..3 on Port B as input (DDRx: 1 => Input, 0 => Output)
-  //PORTB |=  (1 << 0);   // activate internal pull-up resistor for PB0
+  DDRD  = 0xff;           // set port D as output
+  PORTD = 0x00;           // clear all outputs  
+
+  DDRB &= ~(1 << PINB0);  // set PINB0 as input
 
   while(1) {
-      PORTD = PINB;    // map input from Port B to output Port D
+      PORTD = PINB;       // read input from Port B and output to Port D
   }
 }
